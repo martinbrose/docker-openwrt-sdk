@@ -14,7 +14,7 @@ $ ./build.sh Dockerfile.18.06.2-lantiq-xrx200 18.06.2-lantiq-xrx200
 Go back to the parent container and change the docker-compose.yml to point to the image just built.
 Start the docker container with
 ```sh
-$ docker-compose up
+$ docker-compose up -d
 ```
 To look for the container id and then run a shell as `openwrt` user in the SDK container, execute the following command:
 ```sh
