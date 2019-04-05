@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  openwrt-sdk:
+    image: openwrt-sdk:18.06.2-lantiq-xrx200
+    volumes:
+      - ./packages_built:/home/openwrt/sdk/bin
+      - ./mypackages:/home/openwrt/mypackages
+    working_dir: /home/openwrt/sdk
+    #command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /usr/sbin/mysqld'
+    command: tail -f /dev/null
