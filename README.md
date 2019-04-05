@@ -3,6 +3,7 @@ docker-openwrt-sdk
 [![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/hnw/docker-openwrt-sdk/blob/master/LICENSE)
 
 This is a docker container for the [OpenWRT](https://openwrt.org/) / [LEDE](https://www.lede-project.org/) SDK.
+This is a docker container for the [OpenWRT](https://openwrt.org/) SDK.
 
 If a docker image is not already available for the target system, change the Dockerfile 'Dockerfile.18.06.2-lantiq-xrx200' in ./Make_docker_images to point to the SDK of the target system. Make sure to rename the Dockerfile.
 
@@ -42,4 +43,3 @@ More information on how to use the SDK tool-chain can be found on the
 ## See also
 
 - [Using the SDK](https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk) OpenWrt Wiki
-- [Using the SDK](https://lede-project.org/docs/guide-developer/compile_packages_for_lede_with_the_sdk) LEDE docs
