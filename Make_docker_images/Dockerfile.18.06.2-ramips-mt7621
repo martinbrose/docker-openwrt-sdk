@@ -11,10 +11,10 @@ RUN sudo -iu openwrt wget -nv $SDK_URL &&\
     sudo -iu openwrt rm "$(basename $SDK_URL)" &&\
     sudo -iu openwrt mv "$(basename $SDK_URL $SDK_SUFFIX)" sdk &&\
     sudo -iu openwrt sdk/scripts/feeds update -a &&\
-    sudo -iu openwrt ln -s ../feeds/base/package/utils sdk/package/utils &&\
     sudo -iu openwrt mkdir /home/openwrt/sdk/bin &&\
     sudo -iu openwrt mkdir /home/openwrt/mypackages &&\
-    sudo -iu openwrt echo 'src-link mypackages /home/openwrt/mypackages' >> /home/openwrt/sdk/feeds.conf.default
+    sudo -iu openwrt echo 'src-link mypackages /home/openwrt/mypackages' >> /home/openwrt/sdk/feeds.conf.default &&\
+    sudo -iu openwrt ln -s ../feeds/base/package/utils sdk/package/utils
 # see: https://dev.openwrt.org/ticket/18552
 
 # Define environment variable
