@@ -1,6 +1,6 @@
 docker-openwrt-sdk
 ========================
-[![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]
+[![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/redorbluepill/docker-openwrt-sdk/blob/master/LICENSE)
 
 This is for building Docker Images for the [OpenWRT](https://openwrt.org/) SDK.
 
