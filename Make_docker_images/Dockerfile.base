@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 
 RUN apt-get update &&\
     apt-get install -y build-essential \
-                       git-core subversion wget unzip \
+                       git-core subversion wget curl unzip \
                        ccache libncurses5-dev zlib1g-dev \
                        golang-1.10-go python gawk \
                        sudo groff-base upx-ucl &&\

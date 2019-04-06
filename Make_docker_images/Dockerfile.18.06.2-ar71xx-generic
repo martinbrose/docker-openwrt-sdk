@@ -2,12 +2,15 @@
 FROM redorbluepill/openwrt-sdk:base
 
 ENV SDK_URL "https://downloads.openwrt.org/releases/18.06.2/targets/ar71xx/generic/openwrt-sdk-18.06.2-ar71xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz"
+ENV SDK_DOWNLOAD_SHA256 cceeff0d40b611c580b5fbaa4f466fb5c7ddf73850161c9f60e9449bbf680a01
 
 ENV SDK_SUFFIX .tar.xz
 
 # Get SDK, unpack, remove, update feed and link utils
-RUN sudo -iu openwrt wget -nv $SDK_URL &&\
-    sudo -iu openwrt tar xf "$(basename $SDK_URL)" &&\
+RUN sudo -iu openwrt curl -fSL -o "$(basename $SDK_URL)" "$SDK_URL" &&\
+    sudo -iu openwrt echo "$SDK_DOWNLOAD_SHA256 /home/openwrt/$(basename $SDK_URL)" | sha256sum -c -
+
+RUN sudo -iu openwrt tar xf "$(basename $SDK_URL)" &&\
     sudo -iu openwrt rm "$(basename $SDK_URL)" &&\
     sudo -iu openwrt mv "$(basename $SDK_URL $SDK_SUFFIX)" sdk &&\
     sudo -iu openwrt sdk/scripts/feeds update -a &&\
