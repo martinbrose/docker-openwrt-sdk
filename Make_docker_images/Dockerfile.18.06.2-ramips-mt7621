@@ -1,0 +1,22 @@
+# Use an official Python runtime as a parent image
+FROM redorbluepill/openwrt-sdk:base
+
+ENV SDK_URL "https://downloads.openwrt.org/releases/18.06.2/targets/ramips/mt7621/openwrt-sdk-18.06.2-ramips-mt7621_gcc-7.3.0_musl.Linux-x86_64.tar.xz"
+
+ENV SDK_SUFFIX .tar.xz
+
+# Get SDK, unpack, remove, update feed and link utils
+RUN sudo -iu openwrt wget -nv $SDK_URL &&\
+    sudo -iu openwrt tar xf "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt rm "$(basename $SDK_URL)" &&\
+    sudo -iu openwrt mv "$(basename $SDK_URL $SDK_SUFFIX)" sdk &&\
+    sudo -iu openwrt sdk/scripts/feeds update -a &&\
+    sudo -iu openwrt ln -s ../feeds/base/package/utils sdk/package/utils &&\
+    sudo -iu openwrt mkdir /home/openwrt/sdk/bin &&\
+    sudo -iu openwrt mkdir /home/openwrt/mypackages &&\
+    sudo -iu openwrt echo 'src-link mypackages /home/openwrt/mypackages' >> /home/openwrt/sdk/feeds.conf.default
+# see: https://dev.openwrt.org/ticket/18552
+
+# Define environment variable
+ENV PATH $PATH:/home/openwrt/src/staging_dir/toolchain-mips_24kc_gcc-7.3.0_musl/bin
+ENV STAGING_DIR /home/openwrt/src/staging_dir
