@@ -19,7 +19,7 @@ $ docker exec -it -u openwrt -w /home/openwrt/sdk [docker_container-id] /bin/bas
 Own package Makefiles can be copied into the sub folder './mypackages'.
 They will be available in the Docker Container under /home/openwrt/mypackages and will be available after running the feeds update below.
 
-Then build packages as follows:
+Then build packages (e.g. php7) as follows:
 
 ```sh
 $ ./scripts/feeds update -a
