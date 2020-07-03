@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 
 services:
   openwrt-sdk:
-    image: redorbluepill/openwrt-sdk:18.06.2-lantiq-xrx200
+    image: redorbluepill/openwrt-sdk:19.07.3-ar71xx-generic
     volumes:
       - ./packages_built:/home/openwrt/sdk/bin
       - ./mypackages:/home/openwrt/mypackages
